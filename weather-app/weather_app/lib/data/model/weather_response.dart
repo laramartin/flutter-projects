@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:weather_app/data/model/weather.dart';
 
 import 'main_stats.dart';
 
@@ -15,7 +16,9 @@ class CurrentWeatherResponse {
   @JsonKey(name: "main")
   final MainStats mainStats;
 
-  CurrentWeatherResponse(this.code, this.city, this.mainStats);
+  final List<Weather> weather;
 
-  factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) => _$WeatherResponseFromJson(json);
+  CurrentWeatherResponse(this.code, this.city, this.mainStats, this.weather);
+
+  factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) => _$CurrentWeatherResponseFromJson(json);
 }
