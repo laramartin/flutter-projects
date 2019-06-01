@@ -24,4 +24,12 @@ class CurrentWeatherService extends Model {
   int getCurrentTemperature() {
     return currentWeather?.mainStats?.temperature?.round();
   }
+
+  String getCurrentWeatherIcon() {
+    return currentWeather?.weather[0]?.iconId;
+  }
+
+  String getCurrentWeatherDescription() {
+    return currentWeather?.weather[0]?.description;
+  }
 }

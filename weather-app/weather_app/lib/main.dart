@@ -25,7 +25,14 @@ class WeatherApp extends StatelessWidget {
         ),
         body: ScopedModelDescendant<CurrentWeatherService>(
             builder: (context, child, model) {
-          return Text("${model.getCurrentTemperature()}");
+
+          return Column(
+            children: <Widget>[
+              Text("${model.getCurrentTemperature()}"),
+              Image.network("http://openweathermap.org/img/w/${model.getCurrentWeatherIcon()}.png"),
+              Text("${model.getCurrentWeatherDescription()}")
+            ],
+          );
         }),
       ),
     );
