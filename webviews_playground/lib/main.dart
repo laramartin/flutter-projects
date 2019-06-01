@@ -9,6 +9,12 @@ class WebViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _channel = JavascriptChannel(
+      name: "LaraDemo",
+      onMessageReceived: (message) {
+        print(message.message);
+      }
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -48,22 +54,36 @@ class WebViewDemo extends StatelessWidget {
             )
           ],
         ),
-        body: WebView(
-          initialUrl: "https://www.flutter.dev/",
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (WebViewController webViewController) {
-            _controller = webViewController;
-          },
-          onPageFinished: (url) {
-            // use the URL
-          },
-          navigationDelegate: (request) {
-            bool isHost = request.url.startsWith("https://flutter.dev");
-            if (isHost)
-              return NavigationDecision.navigate;
-            else
-              return NavigationDecision.prevent;
-          },
+        body: Column(
+          children: <Widget>[
+            Container(
+              height: 400.0,
+              child: WebView(
+                initialUrl: "https://www.flutter.dev/",
+                javascriptMode: JavascriptMode.unrestricted,
+                onWebViewCreated: (WebViewController webViewController) {
+                  _controller = webViewController;
+                },
+                onPageFinished: (url) {
+                  // use the URL
+                },
+                navigationDelegate: (request) {
+                  bool isHost = request.url.startsWith("https://flutter.dev");
+                  if (isHost)
+                    return NavigationDecision.navigate;
+                  else
+                    return NavigationDecision.prevent;
+                },
+              ),
+            ),
+            Container(
+              height: 100.0,
+              child: WebView(
+                initialUrl: "http://192.168.0.55:8000",
+                javascriptChannels: {_channel},
+              ),
+            ),
+          ],
         ),
       ),
     );
