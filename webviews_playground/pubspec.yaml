@@ -16,8 +16,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  webview_flutter: ^0.3.6
+
   cupertino_icons: ^0.1.2
-  webview_flutter: ^0.1.1
 
 dev_dependencies:
   flutter_test:
