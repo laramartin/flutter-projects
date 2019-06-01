@@ -6,13 +6,13 @@ import 'package:weather_app/data/model/weather_response.dart';
 import '../keys.dart';
 
 class CurrentWeatherService extends Model {
-  WeatherResponse currentWeather;
+  CurrentWeatherResponse currentWeather;
 
   fetchWeather() async {
     var jsonResponse = await http.get(
         "http://api.openweathermap.org/data/2.5/weather?q=Berlin&APPID=${Keys.openWeatherMapApiKey}&units=metric");
     Map json = jsonDecode(jsonResponse.body);
-    var response = WeatherResponse.fromJson(json);
+    var response = CurrentWeatherResponse.fromJson(json);
     print(
         "current temperature in ${response.city}: ${response.mainStats.temperature}");
 

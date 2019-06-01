@@ -5,7 +5,7 @@ import 'main_stats.dart';
 part 'weather_response.g.dart';
 
 @JsonSerializable()
-class WeatherResponse {
+class CurrentWeatherResponse {
   @JsonKey(name: "cod")
   final int code;
 
@@ -15,7 +15,7 @@ class WeatherResponse {
   @JsonKey(name: "main")
   final MainStats mainStats;
 
-  WeatherResponse(this.code, this.city, this.mainStats);
+  CurrentWeatherResponse(this.code, this.city, this.mainStats);
 
-  factory WeatherResponse.fromJson(Map<String, dynamic> json) => _$WeatherResponseFromJson(json);
+  factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) => _$WeatherResponseFromJson(json);
 }

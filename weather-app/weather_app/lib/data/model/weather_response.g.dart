@@ -6,8 +6,8 @@ part of 'weather_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) {
-  return WeatherResponse(
+CurrentWeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) {
+  return CurrentWeatherResponse(
       json['cod'] as int,
       json['name'] as String,
       json['main'] == null
@@ -15,7 +15,7 @@ WeatherResponse _$WeatherResponseFromJson(Map<String, dynamic> json) {
           : MainStats.fromJson(json['main'] as Map<String, dynamic>));
 }
 
-Map<String, dynamic> _$WeatherResponseToJson(WeatherResponse instance) =>
+Map<String, dynamic> _$WeatherResponseToJson(CurrentWeatherResponse instance) =>
     <String, dynamic>{
       'cod': instance.code,
       'name': instance.city,
