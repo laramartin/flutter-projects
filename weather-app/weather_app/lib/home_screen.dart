@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               CurrentWeatherHeader(
                 city: model.getCurrentWeatherCity(),
+                // TODO: use real data formatted
                 date: "Sun, Jun 2",
                 hour: "15:51",
               ),

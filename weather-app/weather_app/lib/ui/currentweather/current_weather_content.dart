@@ -41,7 +41,7 @@ class CurrentWeatherContent extends StatelessWidget {
               ),
               Text(
                 description,
-                style: TypeScale.headline6,
+                style: TypeScale.headline6.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 pressure.toString(),
