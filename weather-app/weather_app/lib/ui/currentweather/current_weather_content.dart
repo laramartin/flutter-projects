@@ -6,14 +6,23 @@ class CurrentWeatherContent extends StatelessWidget {
   final String iconAsset;
   final int temperature;
   final String description;
+  final int pressure;
+  final int humidity;
+  final double windSpeed;
 
-  const CurrentWeatherContent(
-      {@required this.iconAsset,
-      @required this.temperature,
-      @required this.description})
-      : assert(iconAsset != null),
+  const CurrentWeatherContent({
+    @required this.iconAsset,
+    @required this.temperature,
+    @required this.description,
+    @required this.pressure,
+    @required this.humidity,
+    @required this.windSpeed,
+  })  : assert(iconAsset != null),
         assert(temperature != null),
-        assert(description != null);
+        assert(description != null),
+        assert(pressure != null),
+        assert(humidity != null),
+        assert(windSpeed != null);
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +41,20 @@ class CurrentWeatherContent extends StatelessWidget {
               ),
               Text(
                 description,
-                style: TypeScale.body1,
-              )
+                style: TypeScale.headline6,
+              ),
+              Text(
+                pressure.toString(),
+                style: TypeScale.body2,
+              ),
+              Text(
+                humidity.toString(),
+                style: TypeScale.body2,
+              ),
+              Text(
+                windSpeed.toString(),
+                style: TypeScale.body2,
+              ),
             ],
           ),
         ],

@@ -21,23 +21,19 @@ class CurrentWeatherService extends Model {
     notifyListeners();
   }
 
-  int getCurrentTemperature() {
-    return currentWeather?.mainStats?.temperature?.round();
-  }
+  int getCurrentTemperature() => currentWeather?.mainStats?.temperature?.round();
 
-  String getCurrentWeatherIcon() {
-    return currentWeather?.weather[0]?.iconId;
-  }
+  String getCurrentWeatherIcon() => currentWeather?.weather[0]?.iconId;
 
-  String getCurrentWeatherDescription() {
-    return currentWeather?.weather[0]?.description;
-  }
+  String getCurrentWeatherDescription() => currentWeather?.weather[0]?.description;
 
-  int getCurrentWeatherTimestamp() {
-    return currentWeather?.timestamp;
-  }
+  int getCurrentWeatherTimestamp() => currentWeather?.timestamp;
 
-  String getCurrentWeatherCity() {
-    return currentWeather?.city;
-  }
+  String getCurrentWeatherCity() => currentWeather?.city;
+
+  int getCurrentWeatherPressure() => currentWeather?.mainStats?.pressure;
+
+  int getCurrentWeatherHumidity() => currentWeather?.mainStats?.humidity;
+
+  double getCurrentWeatherWindSpeed() => currentWeather?.wind?.speed;
 }
