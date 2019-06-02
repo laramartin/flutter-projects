@@ -36,4 +36,8 @@ class CurrentWeatherService extends Model {
   int getCurrentWeatherTimestamp() {
     return currentWeather?.timestamp;
   }
+
+  String getCurrentWeatherCity() {
+    return currentWeather?.city;
+  }
 }

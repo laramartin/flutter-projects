@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:weather_app/ui/currentweather/current_weather_header.dart';
 import 'data/current_weather_service.dart';
 import 'utils/utils.dart';
 
@@ -17,7 +18,7 @@ class WeatherApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Weather',
-      theme: ThemeData(
+      theme: ThemeData(textTheme: Typography.blackMountainView,
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
@@ -29,13 +30,11 @@ class WeatherApp extends StatelessWidget {
           var asset = getWeatherIcon(model.getCurrentWeatherIcon());
           return Column(
             children: <Widget>[
-              Text("${model.getCurrentTemperature()}"),
-              Image.network(
-                  'http://openweathermap.org/img/w/${model.getCurrentWeatherIcon()}.png'),
-              Image.asset(asset ?? 'weather-unknown'),
-              Text("icon: ${model.getCurrentWeatherIcon()}"),
-              Text("${model.getCurrentWeatherDescription()}"),
-              Text("${model.getCurrentWeatherTimestamp()}")
+              CurrentWeatherHeader(
+                city: model.getCurrentWeatherCity(),
+                date: "Sun, Jun 2",
+                hour: "15:51",
+              )
             ],
           );
         }),
