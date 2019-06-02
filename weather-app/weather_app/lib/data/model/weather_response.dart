@@ -18,7 +18,10 @@ class CurrentWeatherResponse {
 
   final List<Weather> weather;
 
-  CurrentWeatherResponse(this.code, this.city, this.mainStats, this.weather);
+  @JsonKey(name: "dt")
+  final int timestamp;
+
+  CurrentWeatherResponse(this.code, this.city, this.mainStats, this.weather, this.timestamp);
 
   factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) => _$CurrentWeatherResponseFromJson(json);
 }

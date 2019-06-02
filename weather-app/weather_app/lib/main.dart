@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'data/current_weather_service.dart';
-import 'utils/icons_utils.dart';
+import 'utils/utils.dart';
 
 void main() {
   return runApp(ScopedModel<CurrentWeatherService>(
@@ -34,7 +34,8 @@ class WeatherApp extends StatelessWidget {
                   'http://openweathermap.org/img/w/${model.getCurrentWeatherIcon()}.png'),
               Image.asset(asset ?? 'weather-unknown'),
               Text("icon: ${model.getCurrentWeatherIcon()}"),
-              Text("${model.getCurrentWeatherDescription()}")
+              Text("${model.getCurrentWeatherDescription()}"),
+              Text("${model.getCurrentWeatherTimestamp()}")
             ],
           );
         }),
