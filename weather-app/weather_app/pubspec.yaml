@@ -51,6 +51,21 @@ flutter:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
+  assets:
+    # Weather icons, 128px
+    - assets/ic-weather-cloudy.png
+    - assets/ic-weather-fogg.png
+    - assets/ic-weather-heavy-rain.png
+    - assets/ic-weather-light-rain.png
+    - assets/ic-weather-moon.png
+    - assets/ic-weather-moon-clouds.png
+    - assets/ic-weather-partially-clouded.png
+    - assets/ic-weather-scattered-clouds.png
+    - assets/ic-weather-snow.png
+    - assets/ic-weather-sunny.png
+    - assets/ic-weather-sunrise.png
+    - assets/ic-weather-thunder.png
+    - assets/ic-weather-unknown.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
