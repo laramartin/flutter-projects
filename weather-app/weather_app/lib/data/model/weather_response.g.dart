@@ -18,7 +18,10 @@ CurrentWeatherResponse _$CurrentWeatherResponseFromJson(
           ?.map((e) =>
               e == null ? null : Weather.fromJson(e as Map<String, dynamic>))
           ?.toList(),
-      json['dt'] as int);
+      json['dt'] as int,
+      json['wind'] == null
+          ? null
+          : Wind.fromJson(json['wind'] as Map<String, dynamic>));
 }
 
 Map<String, dynamic> _$CurrentWeatherResponseToJson(
@@ -28,5 +31,6 @@ Map<String, dynamic> _$CurrentWeatherResponseToJson(
       'name': instance.city,
       'main': instance.mainStats,
       'weather': instance.weather,
-      'dt': instance.timestamp
+      'dt': instance.timestamp,
+      'wind': instance.wind
     };

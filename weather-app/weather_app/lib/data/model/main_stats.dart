@@ -4,17 +4,26 @@ part 'main_stats.g.dart';
 
 @JsonSerializable()
 class MainStats {
-
   @JsonKey(name: "temp")
-  double temperature;
+  final double temperature;
 
   @JsonKey(name: "temp_min")
-  double minTemperature;
+  final double minTemperature;
 
   @JsonKey(name: "temp_max")
-  double maxTemperature;
+  final double maxTemperature;
 
-  MainStats(this.temperature, this.minTemperature, this.maxTemperature);
+  final int pressure;
+
+  final int humidity;
+
+  MainStats(
+    this.temperature,
+    this.minTemperature,
+    this.maxTemperature,
+    this.pressure,
+    this.humidity,
+  );
 
   factory MainStats.fromJson(Map<String, dynamic> json) =>
       _$MainStatsFromJson(json);

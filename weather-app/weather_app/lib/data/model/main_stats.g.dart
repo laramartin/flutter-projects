@@ -10,11 +10,15 @@ MainStats _$MainStatsFromJson(Map<String, dynamic> json) {
   return MainStats(
       (json['temp'] as num)?.toDouble(),
       (json['temp_min'] as num)?.toDouble(),
-      (json['temp_max'] as num)?.toDouble());
+      (json['temp_max'] as num)?.toDouble(),
+      json['pressure'] as int,
+      json['humidity'] as int);
 }
 
 Map<String, dynamic> _$MainStatsToJson(MainStats instance) => <String, dynamic>{
       'temp': instance.temperature,
       'temp_min': instance.minTemperature,
-      'temp_max': instance.maxTemperature
+      'temp_max': instance.maxTemperature,
+      'pressure': instance.pressure,
+      'humidity': instance.humidity
     };
