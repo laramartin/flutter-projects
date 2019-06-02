@@ -17,7 +17,8 @@ class CurrentWeatherHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(city, style: TypeScale.headline4,),
         Text(date, style: TypeScale.body1,),
