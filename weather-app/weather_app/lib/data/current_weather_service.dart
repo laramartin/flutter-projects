@@ -15,6 +15,7 @@ class CurrentWeatherService extends Model {
     var response = CurrentWeatherResponse.fromJson(json);
     print(
         "current temperature in ${response.city}: ${response.mainStats.temperature}");
+    print("icon to load: ${response.weather[0].iconId}");
 
     currentWeather = response;
 
