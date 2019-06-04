@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'forecast_item.dart';
+
+class ForecastWidget extends StatelessWidget {
+  final List<ForecastItem> forecast;
+
+  ForecastWidget(this.forecast) : assert(forecast != null);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          ...forecast
+        ],
+      ),
+    );
+  }
+}
