@@ -1,10 +1,13 @@
+import 'package:weather_app/data/model/forecastweather/forecast_day.dart';
+import 'package:weather_app/ui/forecast/forecast_item.dart';
+
 getWeatherIcon(String iconId) {
   print("getWeatherIcon($iconId)");
   if (iconId == null) return "assets/ic-weather-unknown.png";
 
   switch (iconId) {
     case "01d":
-      return "assets/ic-weather-sunny.png.png";
+      return "assets/ic-weather-sunny.png";
     case "01n":
       return "assets/ic-weather-moon.png";
     case "02d":
