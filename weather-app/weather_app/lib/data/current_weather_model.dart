@@ -5,7 +5,7 @@ import 'package:weather_app/data/model/weather_response.dart';
 
 import '../keys.dart';
 
-class CurrentWeatherService extends Model {
+class CurrentWeatherModel extends Model {
   CurrentWeatherResponse currentWeather;
 
   fetchWeather() async {

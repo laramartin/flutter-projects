@@ -5,7 +5,7 @@ import 'package:weather_app/ui/currentweather/current_weather_header.dart';
 import 'package:weather_app/ui/forecast/forecast_item.dart';
 import 'package:weather_app/ui/forecast/forecast_widget.dart';
 
-import 'data/current_weather_service.dart';
+import 'data/current_weather_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Weather"),
       ),
-      body: ScopedModelDescendant<CurrentWeatherService>(
+      body: ScopedModelDescendant<CurrentWeatherModel>(
           builder: (context, child, model) {
             var forecastItem = ForecastItem("Sun", "01n", 3, 6);
             var forecast = [forecastItem, forecastItem, forecastItem, forecastItem, forecastItem];
