@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather_app/data/model/currentweather/weather.dart';
+import 'package:weather_app/data/model/common/weather.dart';
 import 'package:weather_app/data/model/currentweather/wind.dart';
 
 import 'package:weather_app/data/model/currentweather/main_stats.dart';
