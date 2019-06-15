@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'main_stats.g.dart';
+part 'package:weather_app/data/model/currentweather/main_stats.g.dart';
 
 @JsonSerializable()
 class MainStats {

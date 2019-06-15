@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'wind.g.dart';
+part 'package:weather_app/data/model/currentweather/wind.g.dart';
 
 @JsonSerializable()
 class Wind {

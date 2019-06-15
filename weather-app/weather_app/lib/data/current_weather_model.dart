@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:scoped_model/scoped_model.dart';
-import 'package:weather_app/data/model/weather_response.dart';
+import 'package:weather_app/data/model/currentweather/weather_response.dart';
 
 import '../keys.dart';
 
