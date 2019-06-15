@@ -7,12 +7,12 @@ class ForecastItem extends StatelessWidget {
   final int minTemperature;
   final int maxTemperature;
 
-  const ForecastItem(
-    this.day,
-    this.iconId,
-    this.minTemperature,
-    this.maxTemperature,
-  )   : assert(day != null),
+  const ForecastItem({
+    @required this.day,
+    @required this.iconId,
+    @required this.minTemperature,
+    @required this.maxTemperature,
+  })   : assert(day != null),
         assert(iconId != null),
         assert(minTemperature != null),
         assert(maxTemperature != null);
