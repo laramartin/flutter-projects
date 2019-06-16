@@ -5,6 +5,7 @@ import 'package:weather_app/ui/currentweather/current_weather_content.dart';
 import 'package:weather_app/ui/currentweather/current_weather_header.dart';
 import 'package:weather_app/ui/forecast/forecast_item.dart';
 import 'package:weather_app/ui/forecast/forecast_widget.dart';
+import 'package:weather_app/utils/utils.dart';
 
 import 'data/current_weather_model.dart';
 
@@ -20,6 +21,7 @@ class HomeScreen extends StatelessWidget {
     var forecastWeatherModel =
         ScopedModel.of<ForecastWeatherModel>(context, rebuildOnChange: true);
 
+    getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp());
     return Scaffold(
         appBar: AppBar(
           title: Text("Weather"),
@@ -31,8 +33,8 @@ class HomeScreen extends StatelessWidget {
               CurrentWeatherHeader(
                 city: currentWeatherModel.getCurrentWeatherCity(),
                 // TODO: use real data formatted
-                date: "Sun, Jun 2",
-                hour: "15:51",
+                date: getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp()),
+                hour: getCurrentTimeHours(currentWeatherModel.getCurrentWeatherTimestamp()),
               ),
               CurrentWeatherContent(
                 iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
@@ -54,7 +56,7 @@ List<ForecastItem> mapForecastToForecastItems(ForecastWeatherModel model) {
   var forecastItems = List<ForecastItem>();
   forecasts.forEach((forecastDay) {
     ForecastItem item = ForecastItem(
-      day: "Sun",
+      day: getFormattedDayOfWeek(getDayOfWeek(model.getForecastTimeStamp(forecastDay))),
       minTemperature: model.getForecastMinTemperature(forecastDay),
       maxTemperature: model.getForecastMaxTemperature(forecastDay),
       iconId: model.getForecastIcon(forecastDay),

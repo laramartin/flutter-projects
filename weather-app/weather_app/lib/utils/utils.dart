@@ -1,5 +1,6 @@
 import 'package:weather_app/data/model/forecastweather/forecast_day.dart';
 import 'package:weather_app/ui/forecast/forecast_item.dart';
+import 'package:intl/intl.dart';
 
 getWeatherIcon(String iconId) {
   print("getWeatherIcon($iconId)");
@@ -39,4 +40,55 @@ getWeatherIcon(String iconId) {
     default:
       return "assets/ic-weather-unknown.png";
   }
+}
+
+DateTime getDateTime(int timestamp) =>
+    DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+
+int getDayOfWeek(int timestamp) {
+  var date = getDateTime(timestamp);
+  print("timestamp: $timestamp, day: ${date.day}, weekday: ${date.weekday},"
+      " year: ${date.year}");
+  return date.weekday;
+}
+
+String getFormattedDayOfWeek(int weekday) {
+  switch (weekday) {
+    case 1:
+      return "Mon";
+      break;
+    case 2:
+      return "Tue";
+      break;
+    case 3:
+      return "Wed";
+      break;
+    case 4:
+      return "Thu";
+      break;
+    case 5:
+      return "Fri";
+      break;
+    case 6:
+      return "Sat";
+      break;
+    case 7:
+      return "Sun";
+      break;
+  }
+  return "?";
+}
+
+String getCurrentTimeDate(int timestamp) {
+  var date = getDateTime(timestamp);
+  var formatter = DateFormat("E, MMM d");
+  String formattedDate = formatter.format(date);
+  return formattedDate;
+}
+
+String getCurrentTimeHours(int timestamp) {
+  var date = getDateTime(timestamp);
+  var formatter = DateFormat("Hm");
+  String formattedTime = formatter.format(date);
+  return formattedTime;
 }
