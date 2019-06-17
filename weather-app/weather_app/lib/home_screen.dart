@@ -23,40 +23,43 @@ class HomeScreen extends StatelessWidget {
 
     getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp());
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Weather"),
+      appBar: AppBar(
+        title: Text("Weather"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            CurrentWeatherHeader(
+              city: currentWeatherModel.getCurrentWeatherCity(),
+              date: getCurrentTimeDate(
+                  currentWeatherModel.getCurrentWeatherTimestamp()),
+              hour: getCurrentTimeHours(
+                  currentWeatherModel.getCurrentWeatherTimestamp()),
+            ),
+            CurrentWeatherContent(
+              iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
+              temperature: currentWeatherModel.getCurrentTemperature(),
+              description: currentWeatherModel.getCurrentWeatherDescription(),
+              pressure: currentWeatherModel.getCurrentWeatherPressure(),
+              humidity: currentWeatherModel.getCurrentWeatherHumidity(),
+              windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
+            ),
+            ForecastWidget(mapForecastToForecastItems(forecastWeatherModel)),
+          ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              CurrentWeatherHeader(
-                city: currentWeatherModel.getCurrentWeatherCity(),
-                // TODO: use real data formatted
-                date: getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp()),
-                hour: getCurrentTimeHours(currentWeatherModel.getCurrentWeatherTimestamp()),
-              ),
-              CurrentWeatherContent(
-                iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
-                temperature: currentWeatherModel.getCurrentTemperature(),
-                description: currentWeatherModel.getCurrentWeatherDescription(),
-                pressure: currentWeatherModel.getCurrentWeatherPressure(),
-                humidity: currentWeatherModel.getCurrentWeatherHumidity(),
-                windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
-              ),
-              ForecastWidget(mapForecastToForecastItems(forecastWeatherModel)),
-            ],
-          ),
-        ));
+      ),
   }
 }
 
+// TODO: move outside
 List<ForecastItem> mapForecastToForecastItems(ForecastWeatherModel model) {
   var forecasts = model.getForecasts();
   var forecastItems = List<ForecastItem>();
   forecasts.forEach((forecastDay) {
     ForecastItem item = ForecastItem(
-      day: getFormattedDayOfWeek(getDayOfWeek(model.getForecastTimeStamp(forecastDay))),
+      day: getFormattedDayOfWeek(
+          getDayOfWeek(model.getForecastTimeStamp(forecastDay))),
       minTemperature: model.getForecastMinTemperature(forecastDay),
       maxTemperature: model.getForecastMaxTemperature(forecastDay),
       iconId: model.getForecastIcon(forecastDay),

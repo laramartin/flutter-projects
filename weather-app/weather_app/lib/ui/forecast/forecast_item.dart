@@ -12,7 +12,7 @@ class ForecastItem extends StatelessWidget {
     @required this.iconId,
     @required this.minTemperature,
     @required this.maxTemperature,
-  })   : assert(day != null),
+  })  : assert(day != null),
         assert(iconId != null),
         assert(minTemperature != null),
         assert(maxTemperature != null);
@@ -23,12 +23,13 @@ class ForecastItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(day),
-        // TODO: add padding in between or some box/spacer
+        SizedBox(height: 16),
         Container(
             height: 40,
             width: 40,
             child: Image.asset(
                 getWeatherIcon(iconId) ?? 'assets/ic-weather-unknown')),
+        SizedBox(height: 16),
         Text("$maxTemperature/$minTemperature")
       ],
     );
