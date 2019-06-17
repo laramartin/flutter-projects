@@ -6,6 +6,7 @@ import 'package:weather_app/ui/currentweather/current_weather_header.dart';
 import 'package:weather_app/ui/forecast/forecast_item.dart';
 import 'package:weather_app/ui/forecast/forecast_widget.dart';
 import 'package:weather_app/utils/utils.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'data/current_weather_model.dart';
 
@@ -49,6 +50,19 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(Icons.favorite), title: Text("Favorite")),
+        BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.globe), title: Text("Cities")),
+        BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.thermometerEmpty),
+            title: Text("Preferences")),
+      ],
+//        currentIndex: ,
+      ),
+    );
   }
 }
 
