@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         title: Text("Weather"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 8),
         child: Column(
           children: <Widget>[
             CurrentWeatherHeader(
@@ -38,28 +38,40 @@ class HomeScreen extends StatelessWidget {
               hour: getCurrentTimeHours(
                   currentWeatherModel.getCurrentWeatherTimestamp()),
             ),
-            CurrentWeatherContent(
-              iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
-              temperature: currentWeatherModel.getCurrentTemperature(),
-              description: currentWeatherModel.getCurrentWeatherDescription(),
-              pressure: currentWeatherModel.getCurrentWeatherPressure(),
-              humidity: currentWeatherModel.getCurrentWeatherHumidity(),
-              windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
+            SizedBox(
+              height: 8,
             ),
-            ForecastWidget(mapForecastToForecastItems(forecastWeatherModel)),
+            Flexible(
+              flex: 4,
+              child: CurrentWeatherContent(
+                iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
+                temperature: currentWeatherModel.getCurrentTemperature(),
+                description: currentWeatherModel.getCurrentWeatherDescription(),
+                pressure: currentWeatherModel.getCurrentWeatherPressure(),
+                humidity: currentWeatherModel.getCurrentWeatherHumidity(),
+                windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Flexible(
+                flex: 2,
+                child: ForecastWidget(
+                    mapForecastToForecastItems(forecastWeatherModel))),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            icon: Icon(Icons.favorite), title: Text("Favorite")),
-        BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.globe), title: Text("Cities")),
-        BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.thermometerEmpty),
-            title: Text("Preferences")),
-      ],
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), title: Text("Favorite")),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.globe), title: Text("Cities")),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.thermometerEmpty),
+              title: Text("Preferences")),
+        ],
 //        currentIndex: ,
       ),
     );

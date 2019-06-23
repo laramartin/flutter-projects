@@ -35,22 +35,28 @@ class CurrentWeatherContent extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(height: 16),
               Text(
                 temperature.toString(),
                 style: TypeScale.headline1,
               ),
+              SizedBox(height: 16),
               Text(
                 description,
-                style: TypeScale.headline6.copyWith(fontWeight: FontWeight.bold),
+                style:
+                    TypeScale.headline6.copyWith(fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 8),
               Text(
                 pressure.toString(),
                 style: TypeScale.body2,
               ),
+              SizedBox(height: 8),
               Text(
                 humidity.toString(),
                 style: TypeScale.body2,
               ),
+              SizedBox(height: 8),
               Text(
                 windSpeed.toString(),
                 style: TypeScale.body2,

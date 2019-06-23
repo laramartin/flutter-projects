@@ -21,7 +21,9 @@ class CurrentWeatherHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(city, style: TypeScale.headline4.copyWith(fontWeight: FontWeight.bold),),
+        SizedBox(height: 16,),
         Text(date, style: TypeScale.body1,),
+        SizedBox(height: 8,),
         Text(hour, style: TypeScale.body1,),
       ],
     );
