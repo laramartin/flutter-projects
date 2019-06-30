@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'forecast_item.dart';
+import 'package:weather_app/presentation/forecast/forecast_item.dart';
 
 class ForecastWidget extends StatelessWidget {
   final List<ForecastItem> forecast;

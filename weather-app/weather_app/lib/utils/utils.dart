@@ -1,5 +1,5 @@
 import 'package:weather_app/data/model/forecastweather/forecast_day.dart';
-import 'package:weather_app/ui/forecast/forecast_item.dart';
+import 'package:weather_app/presentation/forecast/forecast_item.dart';
 import 'package:intl/intl.dart';
 
 getWeatherIcon(String iconId) {
