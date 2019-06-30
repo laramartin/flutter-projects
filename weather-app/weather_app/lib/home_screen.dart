@@ -10,10 +10,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'data/current_weather_model.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key key,
   }) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +35,7 @@ class HomeScreen extends StatelessWidget {
     var forecastWeatherModel =
         ScopedModel.of<ForecastWeatherModel>(context, rebuildOnChange: true);
     getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp());
+
     if (currentWeatherModel.getCurrentWeatherTimestamp() == null ||
         forecastWeatherModel.getForecasts() == null) {
       return Container(
@@ -73,7 +87,8 @@ class HomeScreen extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.thermometerEmpty),
                 title: Text("Preferences")),
           ],
-//        currentIndex: ,
+          currentIndex: currentIndex,
+          onTap: (index) => setState(() => currentIndex = index),
         ),
       );
     }
