@@ -23,13 +23,13 @@ class ForecastItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Text(day),
-        SizedBox(height: 16),
+        SizedBox(height: 8),
         Container(
             height: 40,
             width: 40,
             child: Image.asset(
                 getWeatherIcon(iconId) ?? 'assets/ic-weather-unknown')),
-        SizedBox(height: 16),
+        SizedBox(height: 8),
         Text("$maxTemperature/$minTemperature")
       ],
     );

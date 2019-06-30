@@ -21,60 +21,62 @@ class HomeScreen extends StatelessWidget {
         ScopedModel.of<CurrentWeatherModel>(context, rebuildOnChange: true);
     var forecastWeatherModel =
         ScopedModel.of<ForecastWeatherModel>(context, rebuildOnChange: true);
-
     getCurrentTimeDate(currentWeatherModel.getCurrentWeatherTimestamp());
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Weather"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 8),
-        child: Column(
-          children: <Widget>[
-            CurrentWeatherHeader(
-              city: currentWeatherModel.getCurrentWeatherCity(),
-              date: getCurrentTimeDate(
-                  currentWeatherModel.getCurrentWeatherTimestamp()),
-              hour: getCurrentTimeHours(
-                  currentWeatherModel.getCurrentWeatherTimestamp()),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Flexible(
-              flex: 4,
-              child: CurrentWeatherContent(
-                iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
-                temperature: currentWeatherModel.getCurrentTemperature(),
-                description: currentWeatherModel.getCurrentWeatherDescription(),
-                pressure: currentWeatherModel.getCurrentWeatherPressure(),
-                humidity: currentWeatherModel.getCurrentWeatherHumidity(),
-                windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Flexible(
-                flex: 2,
-                child: ForecastWidget(
-                    mapForecastToForecastItems(forecastWeatherModel))),
-          ],
+    if (currentWeatherModel.getCurrentWeatherTimestamp() == null ||
+        forecastWeatherModel.getForecasts() == null) {
+      return Container(
+        color: Colors.yellow,
+      );
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Weather"),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), title: Text("Favorite")),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.globe), title: Text("Cities")),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.thermometerEmpty),
-              title: Text("Preferences")),
-        ],
+        body: Padding(
+          padding:
+              const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 8),
+          child: Column(
+            children: <Widget>[
+              CurrentWeatherHeader(
+                city: currentWeatherModel.getCurrentWeatherCity(),
+                date: getCurrentTimeDate(
+                    currentWeatherModel.getCurrentWeatherTimestamp()),
+                hour: getCurrentTimeHours(
+                    currentWeatherModel.getCurrentWeatherTimestamp()),
+              ),
+              Flexible(
+                flex: 4,
+                child: CurrentWeatherContent(
+                  iconAsset: currentWeatherModel.getCurrentWeatherIcon(),
+                  temperature: currentWeatherModel.getCurrentTemperature(),
+                  description:
+                      currentWeatherModel.getCurrentWeatherDescription(),
+                  pressure: currentWeatherModel.getCurrentWeatherPressure(),
+                  humidity: currentWeatherModel.getCurrentWeatherHumidity(),
+                  windSpeed: currentWeatherModel.getCurrentWeatherWindSpeed(),
+                ),
+              ),
+              Flexible(
+                  flex: 2,
+                  child: ForecastWidget(
+                      mapForecastToForecastItems(forecastWeatherModel))),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), title: Text("Favorite")),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.globe), title: Text("Cities")),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.thermometerEmpty),
+                title: Text("Preferences")),
+          ],
 //        currentIndex: ,
-      ),
-    );
+        ),
+      );
+    }
   }
 }
 

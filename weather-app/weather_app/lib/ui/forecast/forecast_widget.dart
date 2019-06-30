@@ -9,7 +9,7 @@ class ForecastWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
