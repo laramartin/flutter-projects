@@ -49,8 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: Text("Weather"),
         ),
-        body: _selectedScreen(
-            currentWeatherModel, forecastWeatherModel, currentIndex),
+        body: AnimatedSwitcher(
+          duration: Duration(milliseconds: 200),
+          child: _selectedScreen(
+              currentWeatherModel, forecastWeatherModel, currentIndex),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
