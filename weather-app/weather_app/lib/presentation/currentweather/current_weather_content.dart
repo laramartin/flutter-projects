@@ -36,29 +36,41 @@ class CurrentWeatherContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: 16),
-              Text(
-                temperature.toString(),
-                style: TypeScale.headline1,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    temperature.toString(),
+                    style: TypeScale.headline1,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24),
+                    child: Text(
+                      "°C",
+                      style: TypeScale.headline6,
+                    ),
+                  )
+                ],
               ),
               SizedBox(height: 16),
               Text(
-                description,
+                "${description[0].toUpperCase()}${description.substring(1)}",
                 style:
                     TypeScale.headline6.copyWith(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8),
               Text(
-                pressure.toString(),
+                "Pressure ${pressure.toString()} hPa",
                 style: TypeScale.body2,
               ),
               SizedBox(height: 8),
               Text(
-                humidity.toString(),
+                "Humidity ${humidity.toString()}%",
                 style: TypeScale.body2,
               ),
               SizedBox(height: 8),
               Text(
-                windSpeed.toString(),
+                "Wind ${windSpeed.toString()} m/s",
                 style: TypeScale.body2,
               ),
             ],
