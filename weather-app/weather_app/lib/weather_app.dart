@@ -17,6 +17,7 @@ class WeatherApp extends StatelessWidget {
         textTheme: SoftGreyForReadingTheme,
 //      textTheme: Typography.blackMountainView,
         primarySwatch: Colors.blue,
+        accentColor: Colors.deepPurple,
       ),
       home: HomeScreen(),
     );
